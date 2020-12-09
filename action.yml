@@ -1,0 +1,33 @@
+name: 'Auth0 "Update client Callbacks and Web Origins" Action for GitHub Actions'
+description: 'Updates the allowed Callback URLs and allowed Web Origins for a Client in Auth0'
+inputs:
+  domain:
+    description: "The domain of the Management client"
+    required: true
+  mgmt_client_id:
+    description: "The Client ID of the Management client"
+    required: true
+  mgmt_client_secret:
+    description: "The Client Secret of the Management client"
+    required: true
+  target_client_id:
+    description: "The Client ID of the client to update"
+    required: true
+  dry_run:
+    description: "Whether to do a dry run (defaults to false)"
+    required: false
+  add_callbacks:
+    description: "The values of the Callback URLs to add (comma seperated)."
+    required: false
+  remove_callbacks:
+    description: "The values of the Callback URLs to remove (comma seperated)."
+    required: false
+  add_origins:
+    description: "The values of the Web Origins to add (comma seperated)."
+    required: false
+  remove_origins:
+    description: "The values of the Web Origins to remove (comma seperated)."
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
